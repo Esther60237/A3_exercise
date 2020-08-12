@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const Restaurant = require('../../models/restaurant')
-const restaurant = require('../../models/restaurant')
+const restaurant = []
 
 // Create
 router.get('/new', (req, res) => {
@@ -20,7 +20,7 @@ router.get('/:id', (req, res) => {
   return Restaurant.findById(id)
     .lean()
     .then((restaurant) => res.render('show', { restaurant }))
-    .catch(error => console.log(err))
+    .catch(error => console.log(error))
 })
 
 // Update
